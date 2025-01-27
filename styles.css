@@ -57,7 +57,7 @@ nav ul li a:hover, nav ul li a.active {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-h2, h3 {
+.h2-title, .h3-title {
     color: #02ff0a;
     border-bottom: 2px solid #1b2b3b;
     padding-bottom: 10px;
@@ -106,3 +106,207 @@ a:hover {
 .recent-updates ul li:last-child {
     border-bottom: none;
 }
+
+/* Add these styles to your existing CSS */
+.site-footer {
+    background: #1e1e29;
+    color: #02ff0a;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-section h4 {
+    color: #49dd86;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #02ff0a;
+}
+
+.footer-section ul li a:hover {
+    color: #49dd86;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #1b2b3b;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.content-box {
+    background: #1e1e29;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+    flex-wrap: nowrap;
+}
+
+.box-title {
+    --media-title: var(--media-title, #48ff00);
+    color: var(--media-title);
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 5px var(--media-title);
+}
+
+
+
+
+
+
+
+.box-content {
+    display: grid;
+    grid:
+    "image button-grid" 100%
+    /50% 50%;
+    gap: 5px;
+    align-items: start;
+}
+
+.box-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.grid-button {
+    background: #1b2b3b;
+    color: #49dd86;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.grid-button img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.grid-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.grid-button:hover {
+    background: #2c3e50;
+    color: #02ff0a;
+}
+
+.content-box-glow {
+    --glow-color-bright-A: var(--bright-color-A, #02ff0a);
+    --glow-color-bright-B: var(--bright-color-B, #02ffe1);
+    --glow-color-dark-A: var(--dark-color-A, #006404);
+    --glow-color-dark-B: var(--dark-color-B, #003a64);
+
+    background: linear-gradient(45deg,
+        var(--glow-color-dark-A) 0%,
+        var(--glow-color-dark-B) 100%
+    );
+    border-radius: 20px;
+    border-color: var(--bright-color-B) ;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+}
+
+.article-preview {
+    background: #1e1e29;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+}
+
+.article-preview:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(2, 255, 10, 0.1);
+}
+
+.article-title a {
+    color: #02ff0a;
+    font-size: 24px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.article-title a:hover {
+    color: #49dd86;
+}
+
+.article-excerpt {
+    color: #8cd4aa;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #49dd86;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    color: #02ff0a;
+}
+
+
