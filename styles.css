@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #000000;
 }
 
 
@@ -15,8 +15,8 @@ body {
 }
 
 header {
-    background: #2c3e50;
-    color: white;
+    background: #1e1e29;
+    color: #02ff0a;
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -39,18 +39,18 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #49dd86;
     text-decoration: none;
     padding: 5px 10px;
 }
 
 nav ul li a:hover, nav ul li a.active {
-    background: #34495e;
+    background: #1b2b3b;
     border-radius: 3px;
 }
 
 .wiki-box, .quick-links, .recent-updates {
-    background: white;
+    background: #1e1e29;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -58,8 +58,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 h2, h3 {
-    color: #2c3e50;
-    border-bottom: 2px solid #ecf0f1;
+    color: #02ff0a;
+    border-bottom: 2px solid #1b2b3b;
     padding-bottom: 10px;
 }
 
@@ -73,8 +73,20 @@ ul li {
 }
 
 a {
-    color: #3498db;
+    color: #49dd86;
     text-decoration: none;
+}
+
+a :hover {
+    color: #02ff0a;
+}
+
+a :visited {
+    color: #259d00;
+}
+
+p{
+    color: #02ff0a;
 }
 
 a:hover {
@@ -82,9 +94,13 @@ a:hover {
 }
 
 .recent-updates ul li {
-    color: #7f8c8d;
-    border-bottom: 1px solid #ecf0f1;
+    color: #8cd4aa;
+    border-bottom: 1px solid #1b2b3b;
     padding-bottom: 5px;
+}
+
+.recent-updates ul li :hover{
+    color: #02ff0a;
 }
 
 .recent-updates ul li:last-child {
