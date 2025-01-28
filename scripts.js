@@ -13,23 +13,34 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
+auth.languageCode = 'en';
+const provider = new GoogleAuthProvider();
 
-document.addEventListener('DOMContentLoaded', () => {
-    const googleSignInButton = document.getElementById('google-signin');
-    
-    if (googleSignInButton) {
-        googleSignInButton.addEventListener('click', () => {
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    console.log('Successfully signed in:', result.user);
-                    window.location.href = 'dashboard.html';
-                })
-                .catch((error) => {
-                    console.error('Error signing in:', error);
-                    document.getElementById('error-message').textContent = error.message;
-                });
-        });
-    }
+const loginButton = document.getElementById('google-signin');
+loginButton.addEventListener('click', function() {
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user);
+      window.location.href = "index.html";
+
+
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+
 });
+
