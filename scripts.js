@@ -24,14 +24,17 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-document.getElementById('google-sign-in-button').addEventListener('click', () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((result) => {
-      const user = result.user;
-      console.log('User signed in:', user);
-  }).catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.error('Error signing in:', errorCode, errorMessage);
-  });
+document.getElementById('google-signin').addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log('User signed in:', user);
+        window.location.href = 'dashboard.html';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error signing in:', errorCode, errorMessage);
+        document.getElementById('error-message').textContent = errorMessage;
+      });
 });
