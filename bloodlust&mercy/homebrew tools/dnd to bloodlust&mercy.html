@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnd to Bloodlust&Mercy</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="dndtoblm.css">
+    <script type="module" src="../../scripts.js"></script>
+    <script src="dndtoblm.js"></script>
+</head>
+<body>
+    <div class="weapon-stat-block-body">
+        <div class="weapon-stat-block-title">DnD to Bloodlust&mercy</div>
+        <div class="weapon-form">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" placeholder="e.g., Ranged Weapon">
+            </div>
+            
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="">Select a type...</option>
+                    <option value="arcane_ark">Arcane ark</option>
+                    <option value="axe">Axe</option>
+                    <option value="barb">Barb</option>
+                    <option value="barret">Barret</option>
+                    <option value="bat">Bat</option>
+                    <option value="bayonet">Bayonet</option>
+                    <option value="bike">Bike</option>
+                    <option value="blade_grip">Blade grip</option>
+                    <option value="blood_bath">Blood bath</option>
+                    <option value="blood_gun">Blood gun</option>
+                    <option value="blood_scythe">Blood scythe</option>
+                    <option value="boat">Boat</option>
+                    <option value="bolas">Bolas</option>
+                    <option value="bomb">Bomb</option>
+                    <option value="bone_blade">Bone blade</option>
+                    <option value="bone_gun">Bone gun</option>
+                    <option value="bone_whip">Bone whip</option>
+                    <option value="boom_stick">Boom stick</option>
+                    <option value="boomerang">Boomerang</option>
+                    <option value="bounce_ball">Bounce ball</option>
+                    <option value="bow">Bow</option>
+                    <option value="brass_knuckles">Brass knuckles</option>
+                    <option value="broomstick">Broomstick</option>
+                    <option value="butterfly_knife">Butterfly knife</option>
+                    <option value="buzz_saw">Buzz saw</option>
+                    <option value="cane">Cane</option>
+                    <option value="cannon">Cannon</option>
+                    <option value="car">Car</option>
+                    <option value="chainsaw">Chainsaw</option>
+                    <option value="chi_orb">Chi orb</option>
+                    <option value="chisel">Chisel</option>
+                    <option value="claws">Claws</option>
+                    <option value="club">Club</option>
+                    <option value="conceal_melee_weapon">Conceal melee weapon</option>
+                    <option value="conceal_ranged_weapon">Conceal ranged weapon</option>
+                    <option value="cross">Cross</option>
+                    <option value="crossbow">Crossbow</option>
+                    <option value="cthulhu_pistol">Cthulhu pistol</option>
+                    <option value="curved_axe">Curved axe</option>
+                    <option value="cutlass">Cutlass</option>
+                    <option value="dagger">Dagger</option>
+                    <option value="dart_rope">Dart rope</option>
+                    <option value="dirk">Dirk</option>
+                    <option value="drill">Drill</option>
+                    <option value="drone">Drone</option>
+                    <option value="drugs">Drugs</option>
+                    <option value="dual_blade">Dual blade</option>
+                    <option value="elemental">Elemental</option>
+                    <option value="energy_chaser">Energy chaser</option>
+                    <option value="explosive_hammer">Explosive hammer</option>
+                    <option value="fan">Fan</option>
+                    <option value="fishing_pole">Fishing pole</option>
+                    <option value="flail">Flail</option>
+                    <option value="flame_thrower">Flame thrower</option>
+                    <option value="flintlock">Flintlock</option>
+                    <option value="fluid_gun">Fluid gun</option>
+                    <option value="gatling_gun">Gatling gun</option>
+                    <option value="gauntlets">Gauntlets</option>
+                    <option value="gear_whip">Gear whip</option>
+                    <option value="gemstock">Gemstock</option>
+                    <option value="glitch_blade">Glitch blade</option>
+                    <option value="glitch_fire_arm">Glitch fire arm</option>
+                    <option value="glitch_string">Glitch string</option>
+                    <option value="glue_on_whip">Glue on whip</option>
+                    <option value="great_sword">Great sword</option>
+                    <option value="guardian_blade">Guardian blade</option>
+                    <option value="hammer">Hammer</option>
+                    <option value="harpoon">Harpoon</option>
+                    <option value="heaven_breaker">Heaven breaker</option>
+                    <option value="hoe">Hoe</option>
+                    <option value="hover_craft">Hover craft</option>
+                    <option value="jet">Jet</option>
+                    <option value="khopesh">Khopesh</option>
+                    <option value="knife">Knife</option>
+                    <option value="lance">Lance</option>
+                    <option value="laso">Laso</option>
+                    <option value="living_weapon">Living weapon</option>
+                    <option value="lock_pick">Lock pick</option>
+                    <option value="long_sword">Long sword</option>
+                    <option value="mace">Mace</option>
+                    <option value="mace_axe">Mace axe</option>
+                    <option value="magic_bubbles">Magic bubbles</option>
+                    <option value="magic_circle">Magic circle</option>
+                    <option value="meteor_hammers">Meteor hammers</option>
+                    <option value="musket">Musket</option>
+                    <option value="net">Net</option>
+                    <option value="null_ball">Null ball</option>
+                    <option value="null_shots">Null shots</option>
+                    <option value="nunchucks">Nunchucks</option>
+                    <option value="orb">Orb</option>
+                    <option value="paint_brush">Paint brush</option>
+                    <option value="particle_blaster">Particle blaster</option>
+                    <option value="patuki">Patuki</option>
+                    <option value="pencil">Pencil</option>
+                    <option value="pickaxe">Pickaxe</option>
+                    <option value="pistol">Pistol</option>
+                    <option value="pitch_fork">Pitch fork</option>
+                    <option value="pocket_watch">Pocket watch</option>
+                    <option value="pole_arm">Pole arm</option>
+                    <option value="potion">Potion</option>
+                    <option value="power_shield">Power shield</option>
+                    <option value="precaution">Precaution</option>
+                    <option value="protractor">Protractor</option>
+                    <option value="radio">Radio</option>
+                    <option value="rail_gun">Rail gun</option>
+                    <option value="ray_gun">Ray gun</option>
+                    <option value="razor_floss">Razor floss</option>
+                    <option value="refining_arm">Refining arm</option>
+                    <option value="repolion_staff">Repolion staff</option>
+                    <option value="revolver">Revolver</option>
+                    <option value="ribbon">Ribbon</option>
+                    <option value="rifle">Rifle</option>
+                    <option value="rings">Rings</option>
+                    <option value="rpg">RPG</option>
+                    <option value="ruler">Ruler</option>
+                    <option value="sanding_belt">Sanding belt</option>
+                    <option value="saw">Saw</option>
+                    <option value="scalpel">Scalpel</option>
+                    <option value="scythe">Scythe</option>
+                    <option value="scooper">Scooper</option>
+                    <option value="shackle">Shackle</option>
+                    <option value="shield">Shield</option>
+                    <option value="short_sword">Short sword</option>
+                    <option value="shot_gun">Shot gun</option>
+                    <option value="shovel">Shovel</option>
+                    <option value="shrunken">Shrunken</option>
+                    <option value="sickle">Sickle</option>
+                    <option value="side_arms_extend">Side arms extend</option>
+                    <option value="side_arms_gun">Side arms gun</option>
+                    <option value="side_arms_melee">Side arms melee</option>
+                    <option value="skull">Skull</option>
+                    <option value="sling">Sling</option>
+                    <option value="sling_shot">Sling shot</option>
+                    <option value="smg">Smg</option>
+                    <option value="sniper">Sniper</option>
+                    <option value="sonic_ray">Sonic ray</option>
+                    <option value="speaker">Speaker</option>
+                    <option value="spear">Spear</option>
+                    <option value="spores">Spores</option>
+                    <option value="staff">Staff</option>
+                    <option value="string_instruments">String instruments</option>
+                    <option value="summon">Summon</option>
+                    <option value="talisman">Talisman</option>
+                    <option value="tank">Tank</option>
+                    <option value="throwing_knives">Throwing knives</option>
+                    <option value="throwing_stars">Throwing stars</option>
+                    <option value="tome">Tome</option>
+                    <option value="tomahawk">Tomahawk</option>
+                    <option value="torch">Torch</option>
+                    <option value="tracer_dot">Tracer dot</option>
+                    <option value="trap">Trap</option>
+                    <option value="truck">Truck</option>
+                    <option value="turret">Turret</option>
+                    <option value="umbrella">Umbrella</option>
+                    <option value="volley_guns">Volley guns</option>
+                    <option value="waddy">Waddy</option>
+                    <option value="wand">Wand</option>
+                    <option value="whip">Whip</option>
+                    <option value="wind_instruments">Wind instruments</option>
+                    <option value="wrecking_ball">Wrecking ball</option>
+                    <option value="wrench">Wrench</option>
+                </select>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="properties">Properties:</label>
+                <input type="text" id="properties" placeholder="e.g., Two-Handed, Ammunition">
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" placeholder="e.g., 2 lb.">
+            </div>
+    
+            <!-- Action 1 -->
+            <div class="action-section">
+                <h3>1 Action</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Damage Mode</span>
+                    <span class="stat-value">
+                        <label class="switch">
+                            <input type="checkbox" id="flipSwitch1">
+                            <span class="slider"></span>
+                            <span class="switch-text" data-on="Flipped" data-off="Normal"></span>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="damageType1">Damage Type:</label>
+                    <select id="damageType1" class="damage-select">
+                        <option value="none">Select damage type...</option>
+                        <option value="bludgeoning">Bludgeoning</option>
+                        <option value="piercing">Piercing</option>
+                        <option value="slashing">Slashing</option>
+                        <option value="acid">Acid</option>
+                        <option value="cold">Cold</option>
+                        <option value="fire">Fire</option>
+                        <option value="lightning">Lightning</option>
+                        <option value="poison">Poison</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="necrotic">Necrotic</option>
+                        <option value="radiant">Radiant</option>
+                        <option value="force">Force</option>
+                        <option value="psychic">Psychic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseDamage1">Base Damage:</label>
+                    <input type="text" id="baseDamage1" placeholder="e.g., 1d8">
+                </div>
+                <div class="form-group">
+                    <label for="specialEffect1">Special Effect:</label>
+                    <input type="text" id="specialEffect1" placeholder="e.g., Bleeding">
+                </div>
+                <div class="form-group">
+                    <label for="range1">Range:</label>
+                    <input type="text" id="range 1" placeholder="e.g., 150/600">
+                </div>
+                <div class="form-group">
+                    <label for="toHit1">Plus to Hit:</label>
+                    <input type="text" id="toHit1" placeholder="e.g., +2">
+                </div>
+                <div class="form-group">
+                    <label for="recoil1">Recoil:</label>
+                    <input type="text" id="recoil1" placeholder="e.g., 1">
+                </div>
+            </div>
+    
+            <!-- Action 2 -->
+            <div class="action-section">
+                <h3>2 Actions</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Damage Mode</span>
+                    <span class="stat-value">
+                        <label class="switch">
+                            <input type="checkbox" id="flipSwitch2">
+                            <span class="slider"></span>
+                            <span class="switch-text" data-on="Flipped" data-off="Normal"></span>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="damageType2">Damage Type:</label>
+                    <select id="damageType2" class="damage-select">
+                        <option value="none">Select damage type...</option>
+                        <option value="bludgeoning">Bludgeoning</option>
+                        <option value="piercing">Piercing</option>
+                        <option value="slashing">Slashing</option>
+                        <option value="acid">Acid</option>
+                        <option value="cold">Cold</option>
+                        <option value="fire">Fire</option>
+                        <option value="lightning">Lightning</option>
+                        <option value="poison">Poison</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="necrotic">Necrotic</option>
+                        <option value="radiant">Radiant</option>
+                        <option value="force">Force</option>
+                        <option value="psychic">Psychic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseDamage2">Base Damage:</label>
+                    <input type="text" id="baseDamage2" placeholder="e.g., 2d8">
+                </div>
+                <div class="form-group">
+                    <label for="specialEffect2">Special Effect:</label>
+                    <input type="text" id="specialEffect2" placeholder="e.g., Bleeding">
+                </div>
+                <div class="form-group">
+                    <label for="range2">Range:</label>
+                    <input type="text" id="range 2" placeholder="e.g., 150/600">
+                </div>
+                <div class="form-group">
+                    <label for="toHit2">Plus to Hit:</label>
+                    <input type="text" id="toHit2" placeholder="e.g., +2">
+                </div>
+                <div class="form-group">
+                    <label for="recoil2">Recoil:</label>
+                    <input type="text" id="recoil2" placeholder="e.g., 2">
+                </div>
+            </div>
+    
+            <!-- Action 3 -->
+            <div class="action-section">
+                <h3>3 Actions</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Damage Mode</span>
+                    <span class="stat-value">
+                        <label class="switch">
+                            <input type="checkbox" id="flipSwitch3">
+                            <span class="slider"></span>
+                            <span class="switch-text" data-on="Flipped" data-off="Normal"></span>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="damageType3">Damage Type:</label>
+                    <select id="damageType3" class="damage-select">
+                        <option value="none">Select damage type...</option>
+                        <option value="bludgeoning">Bludgeoning</option>
+                        <option value="piercing">Piercing</option>
+                        <option value="slashing">Slashing</option>
+                        <option value="acid">Acid</option>
+                        <option value="cold">Cold</option>
+                        <option value="fire">Fire</option>
+                        <option value="lightning">Lightning</option>
+                        <option value="poison">Poison</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="necrotic">Necrotic</option>
+                        <option value="radiant">Radiant</option>
+                        <option value="force">Force</option>
+                        <option value="psychic">Psychic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseDamage3">Base Damage:</label>
+                    <input type="text" id="baseDamage3" placeholder="e.g., 3d8">
+                </div>
+                <div class="form-group">
+                    <label for="specialEffect3">Special Effect:</label>
+                    <input type="text" id="specialEffect3" placeholder="e.g., Bleeding">
+                </div>
+                <div class="form-group">
+                    <label for="range3">Range:</label>
+                    <input type="text" id="range 3" placeholder="e.g., 150/600">
+                </div>
+                <div class="form-group">
+                    <label for="toHit3">Plus to Hit:</label>
+                    <input type="text" id="toHit3" placeholder="e.g., +2">
+                </div>
+                <div class="form-group">
+                    <label for="recoil3">Recoil:</label>
+                    <input type="text" id="recoil3" placeholder="e.g., 3">
+                </div>
+            </div>
+    
+            <!-- Action 4 -->
+            <div class="action-section">
+                <h3>4 Actions</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Damage Mode</span>
+                    <span class="stat-value">
+                        <label class="switch">
+                            <input type="checkbox" id="flipSwitch4">
+                            <span class="slider"></span>
+                            <span class="switch-text" data-on="Flipped" data-off="Normal"></span>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="damageType4">Damage Type:</label>
+                    <select id="damageType4" class="damage-select">
+                        <option value="none">Select damage type...</option>
+                        <option value="bludgeoning">Bludgeoning</option>
+                        <option value="piercing">Piercing</option>
+                        <option value="slashing">Slashing</option>
+                        <option value="acid">Acid</option>
+                        <option value="cold">Cold</option>
+                        <option value="fire">Fire</option>
+                        <option value="lightning">Lightning</option>
+                        <option value="poison">Poison</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="necrotic">Necrotic</option>
+                        <option value="radiant">Radiant</option>
+                        <option value="force">Force</option>
+                        <option value="psychic">Psychic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseDamage4">Base Damage:</label>
+                    <input type="text" id="baseDamage4" placeholder="e.g., 4d8">
+                </div>
+                <div class="form-group">
+                    <label for="specialEffect4">Special Effect:</label>
+                    <input type="text" id="specialEffect4" placeholder="e.g., Bleeding">
+                </div>
+                <div class="form-group">
+                    <label for="range4">Range:</label>
+                    <input type="text" id="range 4" placeholder="e.g., 150/600">
+                </div>
+                <div class="form-group">
+                    <label for="toHit4">Plus to Hit:</label>
+                    <input type="text" id="toHit4" placeholder="e.g., +2">
+                </div>
+                <div class="form-group">
+                    <label for="recoil4">Recoil:</label>
+                    <input type="text" id="recoil4" placeholder="e.g., 4">
+                </div>
+            </div>
+    
+            <!-- Action 5 -->
+            <div class="action-section">
+                <h3>5 Actions</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Damage Mode</span>
+                    <span class="stat-value">
+                        <label class="switch">
+                            <input type="checkbox" id="flipSwitch5">
+                            <span class="slider"></span>
+                            <span class="switch-text" data-on="Flipped" data-off="Normal"></span>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="damageType5">Damage Type:</label>
+                    <select id="damageType5" class="damage-select">
+                        <option value="none">Select damage type...</option>
+                        <option value="bludgeoning">Bludgeoning</option>
+                        <option value="piercing">Piercing</option>
+                        <option value="slashing">Slashing</option>
+                        <option value="acid">Acid</option>
+                        <option value="cold">Cold</option>
+                        <option value="fire">Fire</option>
+                        <option value="lightning">Lightning</option>
+                        <option value="poison">Poison</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="necrotic">Necrotic</option>
+                        <option value="radiant">Radiant</option>
+                        <option value="force">Force</option>
+                        <option value="psychic">Psychic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseDamage5">Base Damage:</label>
+                    <input type="text" id="baseDamage5" placeholder="e.g., 5d8">
+                </div>
+                <div class="form-group">
+                    <label for="specialEffect5">Special Effect:</label>
+                    <input type="text" id="specialEffect5" placeholder="e.g., Bleeding">
+                </div>
+                <div class="form-group">
+                    <label for="range5">Range:</label>
+                    <input type="text" id="range 5" placeholder="e.g., 150/600">
+                </div>
+                <div class="form-group">
+                    <label for="toHit5">Plus to Hit:</label>
+                    <input type="text" id="toHit5" placeholder="e.g., +2">
+                </div>
+                <div class="form-group">
+                    <label for="recoil5">Recoil:</label>
+                    <input type="text" id="recoil5" placeholder="e.g., 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="trigger-button" onclick="handleClick()">Convert</button>
+
+
+<div class="weapon-stat-block">
+    <div class="yellow-block-line"></div>
+    <div class="weapon-stat-block-body">
+        <div class="weapon-stat-block-title">Weapon Statistics</div>
+        
+        <div class="stat-section">
+            <h3>Basic Information</h3>
+            <div class="stat-row">
+                <span class="stat-label">Weapon Type:</span>
+                <span class="stat-value" id="weaponType">Bow</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Properties:</span>
+                <span class="stat-value" id="properties"></span>
+            </div>
+        </div>
+
+        <div class="stat-section">
+            
+            <div class="action-block">
+                <h4>1 Action</h4>
+                <div class="stat-row">
+                    <span class="stat-label">action cost</span>
+                    <span class="stat-value" id="action cost">1</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">other costs</span>
+                    <span class="stat-value" id="other costs1">arrows</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Damage type</span>
+                    <span class="stat-value" id="damage1"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">base damage</span>
+                    <span class="stat-value" id="base damage1"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Special Effect:</span>
+                    <span class="stat-value" id="effect1">Pierce</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value" id="range1">30ft</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Attack Shape:</span>
+                    <span class="stat-value" id="shape1">Single Target</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Aim Bonus:</span>
+                    <span class="stat-value" id="aim1">+0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Recoil:</span>
+                    <span class="stat-value" id="recoil 1">0</span>
+                </div>
+            </div>
+            <div class="action-block">
+                <h4>2 Action</h4>
+                <div class="stat-row">
+                    <span class="stat-label">action cost</span>
+                    <span class="stat-value" id="action cost2">1</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">other costs</span>
+                    <span class="stat-value" id="other costs2">arrows</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Damage type</span>
+                    <span class="stat-value" id="damage2"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">base damage</span>
+                    <span class="stat-value" id="base damage2"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Special Effect:</span>
+                    <span class="stat-value" id="effect2">Pierce</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value" id="range2">30ft</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Attack Shape:</span>
+                    <span class="stat-value" id="shape2">Single Target</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Aim Bonus:</span>
+                    <span class="stat-value" id="aim2">+0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Recoil:</span>
+                    <span class="stat-value" id="recoil 2">0</span>
+                </div>
+            </div>
+            <div class="action-block">
+                <h4>3 Action</h4>
+                <div class="stat-row">
+                    <span class="stat-label">action cost</span>
+                    <span class="stat-value" id="action cost3">1</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">other costs</span>
+                    <span class="stat-value" id="other costs3">arrows</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Damage type</span>
+                    <span class="stat-value" id="damage3"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">base damage</span>
+                    <span class="stat-value" id="base damage3"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Special Effect:</span>
+                    <span class="stat-value" id="effect3">Pierce</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value" id="range3">30ft</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Attack Shape:</span>
+                    <span class="stat-value" id="shape3">Single Target</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Aim Bonus:</span>
+                    <span class="stat-value" id="aim3">+0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Recoil:</span>
+                    <span class="stat-value" id="recoil 3">0</span>
+                </div>
+            </div>
+            <div class="action-block">
+                <h4>4 Action</h4>
+                <div class="stat-row">
+                    <span class="stat-label">action cost</span>
+                    <span class="stat-value" id="action cost4">1</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">other costs</span>
+                    <span class="stat-value" id="other costs4">arrows</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Damage type</span>
+                    <span class="stat-value" id="damage4"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">base damage</span>
+                    <span class="stat-value" id="base damage4"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Special Effect:</span>
+                    <span class="stat-value" id="effect4">Pierce</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value" id="range4">30ft</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Attack Shape:</span>
+                    <span class="stat-value" id="shape4">Single Target</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Aim Bonus:</span>
+                    <span class="stat-value" id="aim4">+0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Recoil:</span>
+                    <span class="stat-value" id="recoil 4">0</span>
+                </div>
+            </div>
+            <div class="action-block">
+                <h4>5 Action</h4>
+                <div class="stat-row">
+                    <span class="stat-label">action cost</span>
+                    <span class="stat-value" id="action cost5">1</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">other costs</span>
+                    <span class="stat-value" id="other costs5">arrows</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Damage type</span>
+                    <span class="stat-value" id="damage5"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">base damage</span>
+                    <span class="stat-value" id="base damage5"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Special Effect:</span>
+                    <span class="stat-value" id="effect5">Pierce</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value" id="range5">30ft</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Attack Shape:</span>
+                    <span class="stat-value" id="shape5">Single Target</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Aim Bonus:</span>
+                    <span class="stat-value" id="aim5">+0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Recoil:</span>
+                    <span class="stat-value" id="recoil 5">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yellow-block-line"></div>
+</div>
+
+</body>
+
+</html>

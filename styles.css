@@ -482,8 +482,8 @@ a:hover {
 }
 
 .wiki-header {
-    --wiki-header-color: var(--wiki-header-color, #630404);
-    background: var(--wiki-header-color, #630404);
+    --wiki-header-color: var(--wiki-header-color, #786B3D);
+    background: var(--wiki-header-color, #786B3D);
 }
 
 .header-content {
@@ -519,8 +519,8 @@ a:hover {
 .color-a {
     --wiki-color-A: var(--wiki-color-A, #02ff0a);
     background: var(--wiki-color-A, #02ff0a);
-    --wiki-text-color-A: var(--wiki-text-color-A, #1e1e29);
-    color: var(--wiki-text-color-A, #1e1e29);
+    --wiki-text-color: var(--wiki-text-color, #1e1e29);
+    color: var(--wiki-text-color, #1e1e29);
     padding: 20px;
     margin: 0 0 0 0;
 }    
@@ -528,8 +528,7 @@ a:hover {
 .color-b {
     --wiki-color-B: var(--wiki-color-B, #02ff0a);
     background: var(--wiki-color-B, #02ff0a);
-    --wiki-text-color-B: var(--wiki-text-color-B, #1e1e29);
-    color: var(--wiki-text-color-B, #1e1e29);
+    color: var(--wiki-text-color, #1e1e29);
     padding: 20px;
     margin: 0 0 0 0;
     
@@ -553,7 +552,7 @@ a:hover {
     align-items: center;
 }
 .wiki-body{
-    background: var(--wiki-header-color, #630404);
+    background: var(--wiki-header-color, #786B3D);
     color: #02ff0a;
     border-radius: 5px;
     margin: 0 0 0 0;
@@ -570,8 +569,182 @@ a:hover {
 
 .wiki-side-ad {grid-area: wiki-side-ad;}
 .wiki-body-image {grid-area: wiki-body-image;}
-.wiki-title {grid-area: wiki-title;}
+.wiki-title {grid-area: wiki-title;
+font-size: 2em;
+font-weight: bold;
+}
 .wiki-colum1 {grid-area: wiki-colum1;}
 .wiki-colum2 {grid-area: wiki-colum2;}
 .wiki-colum3 {grid-area: wiki-colum3;}
 
+.bold {
+    font-weight: bold;
+}
+
+.link {
+    
+    color: var(--wiki-text-color, #02ff0a);
+}
+
+.weapon-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.wiki-path {
+    background-color: #f5f5f5;
+    color: #000000;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.weapon-stats ul {
+    list-style: none;
+    padding: 0;
+}
+
+.weapon-stats li {
+    margin: 10px 0;
+}
+
+.weapon-description {
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.weapon-mechanics {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.weapon-mechanics ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.weapon-mechanics li {
+    margin: 5px 0;
+}
+
+.wiki-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wiki-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.wiki-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.table-cell, .table-cell-bold {
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.table-cell-bold {
+    font-weight: 700;
+    background-color: var(--wiki-header-color, #786B3D);
+    color: var(--wiki-header-color, #786B3D);
+    filter: invert(1); /* Inverts the entire element */
+}
+
+.table-cell-bold::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--wiki-header-color, #786B3D);
+    z-index: -1;
+    filter: invert(1);
+}
+
+@media screen and (max-width: 600px) {
+    .wiki-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+.weapon-stat-block {
+    display: grid;
+    grid:
+    "top-line" 10px
+    "content" auto
+    "bottom-line" 10px
+    / minmax(300px, 600px);
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 0;
+}
+
+.yellow-block-line {
+    grid-area: top-line;
+    background-color: #c8975d;
+    height: 10px;
+    width: 100%;
+    outline: 2px solid #000000;
+}
+
+.yellow-block-line:last-child {
+    grid-area: bottom-line;
+}
+
+.weapon-stat-block-body {
+    grid-area: content;
+    min-height: 100px;
+    width: 100%;
+    background-color: #f8f0db;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.weapon-stat-block-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.weapon-stat-block-title{
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    color:#000000;
+}
+
+.weapon-stat-block-text{
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color:#000000;
+}
+
+.weapon-stat-block-tag{
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color:#9b0000;
+}
