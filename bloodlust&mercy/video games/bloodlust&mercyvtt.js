@@ -54,7 +54,7 @@ class ChatSystem {
 
 class Tile {
     constructor(data = {}) {
-        this.image = data.image || 'default.png';
+        this.image = data.image || 'default.jpg';
         this.position = data.position || { x: 0, y: 0, z: 0 };
         this.height = data.height || 0;
         this.wall = data.wall || {
