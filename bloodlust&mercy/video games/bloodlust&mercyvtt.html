@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Movement Game</title>
+    <link rel="stylesheet" href="bloodlust&mercyvtt.css">
+    <script src="bloodlust&mercyvtt.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-panel">
+            <button class="panel-button">s</button>
+            <button class="panel-button">d</button>
+            <button class="panel-button">f</button>
+            <button class="panel-button">m</button>
+            <button class="panel-button">l</button>
+        </div>
+
+        <!-- Middle Column - Viewport -->
+        <div class="viewport">
+            <div id="grid" class="grid"></div>
+            <div id="menu" class="menu">
+                <button id="moveButton">Move</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+        </div>
+        <!-- Inside the right-panel div -->
+        <div class="right-panel">
+            <div class="widget-switcher">
+                <button class="widget-button active" data-widget="chat"><img src="textures/chat.png" alt="chat icon" width="15px" height="15px"></button>
+                <button class="widget-button" data-widget="sheets"><img src="textures/jornal.png" alt="jornal icon" width="15px" height="15px"></button>
+                <button class="widget-button" data-widget="source"><img src="textures/source stuff.png" alt="source icon" width="15px" height="15px"></button>
+                <button class="widget-button" data-widget="audio"><img src="textures/event.png" alt="event icon" width="15px" height="15px"></button>
+                <button class="widget-button" data-widget="settings"><img src="textures/setting gear.png" alt="setting icon" width="15px" height="15px"></button>
+        </div>
+    
+        <div class="widget-container">
+            <div class="widget-panel active" id="chat-panel">
+                <div class="chat-area">
+                    <div class="chat-messages"></div>
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" placeholder="Enter message or command...">
+                    </div>
+                </div>
+            </div>
+            <div class="widget-panel" id="sheets-panel">
+                <h3>Handouts & Character Sheets</h3>
+                <div class="sheets-container"></div>
+            </div>
+        
+            <div class="widget-panel" id="source-panel">
+                <h3>Source & Homebrew</h3>
+                <div class="source-container"></div>
+            </div>
+        
+            <div class="widget-panel" id="audio-panel">
+                <h3>Audio & Event Manager</h3>
+                <div class="audio-controls"></div>
+            </div>
+
+            <div class="widget-panel" id="settings-panel">
+                <h3>Settings</h3>
+                <div class="settings-container"></div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</body>
+</html>

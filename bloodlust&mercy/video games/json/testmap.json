@@ -1,0 +1,320 @@
+{
+    "name": "Test Dungeon",
+    "tiles": [
+        {
+            "image": "stone.png",
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "encounter",
+                    "data": { "id": "goblin_ambush" }
+                }
+            ]
+        },
+        {
+            "image": "wood.png",
+            "position": { "x": 0, "y": 1, "z": 0 },
+            "height": 2,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": 1, "y": 1, "z": 0 },
+            "height": 2,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": -1, "y": 1, "z": 0 },
+            "height": 2,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": 1, "y": 0, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": -1, "y": 0, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 45,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 45
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": 0, "y": -1, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 0,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 0
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": 1, "y": -1, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 0,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 0
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        },
+        {
+            "image": "stone.png",
+            "position": { "x": -1, "y": -1, "z": 0 },
+            "height": 1,
+            "wall": {
+                "north": false,
+                "south": false,
+                "east": false,
+                "west": false
+            },
+            "slope": {
+                "north": 0,
+                "south": 0,
+                "east": 0,
+                "west": 0,
+                "northeast": 0,
+                "northwest": 0,
+                "southeast": 0,
+                "southwest": 0,
+                "type": "stairs",
+                "angle": 0
+            },
+            "temperature": 18,
+            "airContent": {
+                "oxygen": 19,
+                "nitrogen": 80,
+                "other": 1
+            },
+            "eventTriggers": [
+                {
+                    "type": "none",
+                    "data": { "id": "none" }
+                }
+            ]
+        }
+    ]
+}
