@@ -360,7 +360,88 @@ class ChatSystem {
       new Game();
       new RightPanelManager();
       new ChatSystem();
+      new SheetsManager();
   };
 
   
+  
+  class SheetsManager {
+      constructor() {
+          this.initializeButtons();
+      }
+  
+      initializeButtons() {
+          const createCharacterBtn = document.getElementById('createCharacterBtn');
+          const createHandoutBtn = document.getElementById('createHandoutBtn');
+  
+          createCharacterBtn.addEventListener('click', () => this.createCharacter());
+          createHandoutBtn.addEventListener('click', () => this.createHandout());
+      }
+          createCharacter() {
+              const creationWindow = document.createElement('div');
+              creationWindow.className = 'character-creation-window';
+              creationWindow.innerHTML = `
+                  <form class="character-form">
+                      <div class="image-preview-container">
+                          <div class="image-input-container">
+                              <label>Portrait</label>
+                              <div class="image-preview" id="portraitPreview">Click to add image</div>
+                              <input type="file" id="portraitInput" accept="image/*" style="display: none">
+                          </div>
+                          <div class="image-input-container">
+                              <label>Token</label>
+                              <div class="image-preview" id="tokenPreview">Click to add image</div>
+                              <input type="file" id="tokenInput" accept="image/*" style="display: none">
+                          </div>
+                      </div>
+                      <input type="text" class="character-input" placeholder="Character Name" id="nameInput">
+                      <textarea class="character-input character-textarea" placeholder="Character Bio" id="bioInput"></textarea>
+                      <div class="button-container">
+                          <button type="button" class="next-button">Next</button>
+                          <button type="button" class="close-button" id="closeBtn">Close</button>
+                      </div>
+                  </form>
+              `;
+
+              document.body.appendChild(creationWindow);
+
+              this.setupImagePreviews('portraitInput', 'portraitPreview');
+              this.setupImagePreviews('tokenInput', 'tokenPreview');
+
+              // Add close button functionality
+              document.getElementById('closeBtn').addEventListener('click', () => {
+                  document.getElementById('portraitInput').value = '';
+                  document.getElementById('tokenInput').value = '';
+                  document.getElementById('nameInput').value = '';
+                  document.getElementById('bioInput').value = '';
+                  document.getElementById('portraitPreview').style.backgroundImage = '';
+                  document.getElementById('portraitPreview').textContent = 'Click to add image';
+                  document.getElementById('tokenPreview').style.backgroundImage = '';
+                  document.getElementById('tokenPreview').textContent = 'Click to add image';
+                  creationWindow.remove();
+              });
+          }
+        setupImagePreviews(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+
+            preview.addEventListener('click', () => input.click());
+
+            input.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        preview.style.backgroundImage = `url(${e.target.result})`;
+                        preview.textContent = '';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+      createHandout() {
+          // Add handout creation logic here
+          console.log('Creating new handout');
+      }
+  }
   

@@ -213,3 +213,117 @@ body{
 .settings-button:hover {
     background: #2980b9;
 }
+
+.sheets-controls {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.sheets-button {
+    padding: 8px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sheets-button:hover {
+    background: #2980b9;
+}
+
+.character-creation-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #34495e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    color: white;
+    z-index: 10002;
+    width: 500px;
+}
+
+.character-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.image-preview-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.image-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-preview {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.character-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #3498db;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.character-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.next-button {
+    padding: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.next-button:hover {
+    background: #2980b9;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.close-button {
+    padding: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.close-button:hover {
+    background: #c0392b;
+}
