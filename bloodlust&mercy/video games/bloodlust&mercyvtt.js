@@ -51,63 +51,55 @@ class ChatSystem {
     }
 }
 
+  class Tile {
+      constructor(data = {}) {
+          this.image = data.image || 'textures/stone.jpg';
+          this.position = data.position || { x: 0, y: 0, z: 0 };
+          this.height = data.height || 0;
+          this.wall = data.wall || {
+              north: false,
+              south: false,
+              east: false,
+              west: false
+          };
+          this.slope = data.slope || {
+              north: 0, south: 0, east: 0, west: 0,
+              northeast: 0, northwest: 0, southeast: 0, southwest: 0,
+              type: 'none',
+              angle: 0
+          };
+          this.temperature = data.temperature || 20;
+          this.airContent = data.airContent || {
+              oxygen: 21,
+              nitrogen: 78,
+              other: 1
+          };
+          this.eventTriggers = data.eventTriggers || [];
+      }
 
-class Tile {
-    constructor(data = {}) {
-        this.image = data.image || 'default.jpg';
-        this.position = data.position || { x: 0, y: 0, z: 0 };
-        this.height = data.height || 0;
-        this.wall = data.wall || {
-            north: false,
-            south: false,
-            east: false,
-            west: false
-        };
-        this.slope = data.slope || {
-            north: 0, south: 0, east: 0, west: 0,
-            northeast: 0, northwest: 0, southeast: 0, southwest: 0,
-            type: 'none',
-            angle: 0
-        };
-        this.temperature = data.temperature || 20;
-        this.airContent = data.airContent || {
-            oxygen: 21,
-            nitrogen: 78,
-            other: 1
-        };
-        this.eventTriggers = data.eventTriggers || [];
-    }
-
-    createDOMElement() {
-        const tile = document.createElement('div');
-        tile.className = 'tile';
-        tile.dataset.x = this.position.x;
-        tile.dataset.y = this.position.y;
-        tile.dataset.height = this.height;
+      createDOMElement() {
+          const tile = document.createElement('div');
+          tile.className = 'tile';
+          tile.dataset.x = this.position.x;
+          tile.dataset.y = this.position.y;
+          tile.dataset.height = this.height;
+          tile.dataset.slope = JSON.stringify(this.slope);
         
-        tile.style.backgroundImage = `url(textures/${this.image})`;
-        tile.style.backgroundSize = 'cover';
-        tile.style.backgroundPosition = 'center';
+          tile.style.backgroundImage = `url(${this.image})`;
+          tile.style.backgroundSize = 'cover';
+          tile.style.backgroundPosition = 'center';
         
-        Object.entries(this.wall).forEach(([direction, hasWall]) => {
-            if (hasWall) tile.classList.add(`wall-${direction}`);
-        });
+          Object.entries(this.wall).forEach(([direction, hasWall]) => {
+              if (hasWall) tile.classList.add(`wall-${direction}`);
+          });
         
-        if (this.slope.angle > 0) {
-            tile.classList.add('slope');
-            tile.style.transform = `translateZ(${this.height * 5}px) rotateX(${this.slope.angle}deg)`;
-        } else {
-            tile.style.transform = `translateZ(${this.height * 5}px)`;
-        }
-        
-        return tile;
-    }
-}
-  class GridManager {
+          return tile;
+      }
+}  class GridManager {
       constructor() {
           this.tiles = [];
           this.tileSize = 70;
-          this.loadMap('json/testmap.json');  // Updated filename
+          this.loadMap('testmap.json');
       }
 
       async loadMap(mapFile) {
@@ -121,9 +113,40 @@ class Tile {
           }
       }
 
-      createGrid(mapData) {
+      resetGrid() {
           const gridContainer = document.getElementById('grid');
-          gridContainer.style.display = 'grid';
+          gridContainer.innerHTML = '';
+          this.tiles = [];
+      }
+
+      calculateGridDimensions(mapData) {
+          let minX = Infinity;
+          let maxX = -Infinity;
+          let minY = Infinity;
+          let maxY = -Infinity;
+
+          mapData.tiles.forEach(tile => {
+              minX = Math.min(minX, tile.position.x);
+              maxX = Math.max(maxX, tile.position.x);
+              minY = Math.min(minY, tile.position.y);
+              maxY = Math.max(maxY, tile.position.y);
+          });
+
+          return {
+              width: (maxX - minX + 1) * this.tileSize,
+              height: (maxY - minY + 1) * this.tileSize,
+              offsetX: minX * this.tileSize,
+              offsetY: minY * this.tileSize
+          };
+      }
+
+      createGrid(mapData) {
+          this.resetGrid();
+          const gridContainer = document.getElementById('grid');
+          const dimensions = this.calculateGridDimensions(mapData);
+
+          gridContainer.style.width = `${dimensions.width}px`;
+          gridContainer.style.height = `${dimensions.height}px`;
         
           mapData.tiles.forEach(tileData => {
               const tile = new Tile(tileData);
@@ -132,8 +155,8 @@ class Tile {
               tileElement.style.position = 'absolute';
               tileElement.style.width = `${this.tileSize}px`;
               tileElement.style.height = `${this.tileSize}px`;
-              tileElement.style.left = `${tileData.position.x * this.tileSize}px`;
-              tileElement.style.top = `${tileData.position.y * this.tileSize}px`;
+              tileElement.style.left = `${(tileData.position.x * this.tileSize) - dimensions.offsetX}px`;
+              tileElement.style.top = `${(tileData.position.y * this.tileSize) - dimensions.offsetY}px`;
             
               gridContainer.appendChild(tileElement);
               this.tiles.push(tile);
@@ -143,7 +166,7 @@ class Tile {
       createDefaultGrid() {
           const defaultMap = {
               tiles: Array(121).fill(null).map((_, index) => ({
-                  image: 'stone.png',
+                  image: 'textures/stone.jpg',
                   position: {
                       x: index % 11,
                       y: Math.floor(index / 11),
@@ -168,38 +191,59 @@ class Tile {
           };
           this.createGrid(defaultMap);
       }
-  }
-  class Game {
-      static MIN_ZOOM = 0.5;
-      static MAX_ZOOM = 2.0;
-      static MOVE_DIVISOR = 5;
+  }        class Game {
+            static MIN_ZOOM = 0.5;
+            static MAX_ZOOM = 2.0;
+            static MOVE_DIVISOR = 5;
 
-      constructor() {
-          this.isDragging = false;
-          this.lastMouseX = 0;
-          this.lastMouseY = 0;
-          this.offsetX = 0;
-          this.offsetY = 0;
+            constructor() {
+                this.isDragging = false;
+                this.lastMouseX = 0;
+                this.lastMouseY = 0;
+                this.offsetX = 0;
+                this.offsetY = 0;
 
-          this.viewport = document.querySelector('.viewport');
-          this.grid = document.getElementById('grid');
-          this.menu = document.getElementById('menu');
-          this.moveButton = document.getElementById('moveButton');
-          this.cancelButton = document.getElementById('cancelButton');
-          this.gridSize = 11;
-          this.playerPos = {x: 5, y: 5};
-          this.walkSpeed = 25;
-          this.moveRange = Math.floor(this.walkSpeed / Game.MOVE_DIVISOR);
-          this.moveMode = false;
-          this.zoomLevel = 1;
-          this.floorMaterials = ['wood', 'stone', 'marble', 'dirt', 'grass'];
-          this.gameState = 'IDLE';
+                this.viewport = document.querySelector('.viewport');
+                this.grid = document.getElementById('grid');
+                this.menu = document.getElementById('menu');
+                this.moveButton = document.getElementById('moveButton');
+                this.cancelButton = document.getElementById('cancelButton');
+                this.gridSize = 11;
+                this.playerPos = {x: 5, y: 5};
+                this.walkSpeed = 25;
+                this.moveRange = Math.floor(this.walkSpeed / Game.MOVE_DIVISOR);
+                this.moveMode = false;
+                this.zoomLevel = 1;
+                this.floorMaterials = ['wood', 'stone', 'marble', 'dirt', 'grass'];
+                this.gameState = 'IDLE';
         
-          this.gridManager = new GridManager();
-          this.initEvents();
-          this.initZoom();
-          this.initDrag();
-      }
+                this.gridManager = new GridManager();
+                this.initEvents();
+                this.initZoom();
+                this.initDrag();
+                this.initMapImport();
+            }
+
+            initMapImport() {
+                const importBtn = document.getElementById('importMapBtn');
+                const fileInput = document.getElementById('mapFileInput');
+
+                importBtn.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+
+                    reader.onload = (event) => {
+                        const mapData = JSON.parse(event.target.result);
+                        this.gridManager.createGrid(mapData);
+                    };
+
+                    reader.readAsText(file);
+                });
+            }
     initDrag() {
         this.viewport.addEventListener('mousedown', (e) => {
             if (e.button === 2) {
