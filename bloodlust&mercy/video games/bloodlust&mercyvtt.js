@@ -369,6 +369,7 @@ class ChatSystem {
       constructor() {
           this.initializeButtons();
           this.sheetsContainer = document.querySelector('.sheets-container');
+          this.sheetTypes = ['animal', 'aberrations', 'npcs', 'player', 'constructs'];
       }
 
       initializeButtons() {
@@ -407,43 +408,153 @@ class ChatSystem {
           document.body.appendChild(creationWindow);
           this.setupImagePreviews('portraitInput', 'portraitPreview');
           this.setupImagePreviews('tokenInput', 'tokenPreview');
-            // Add next button functionality
-            document.querySelector('.next-button').addEventListener('click', () => {
-                const name = document.getElementById('nameInput').value;
-                const bio = document.getElementById('bioInput').value;
-                const portraitPreview = document.getElementById('portraitPreview');
-                const tokenPreview = document.getElementById('tokenPreview');
-              
-                this.createCharacterButton({
-                    name,
-                    bio,
-                    portraitUrl: portraitPreview.dataset.imageData || '',
-                    tokenUrl: tokenPreview.dataset.imageData || ''
-                });
+          document.querySelector('.next-button').addEventListener('click', () => {
+              const name = document.getElementById('nameInput').value;
+              const bio = document.getElementById('bioInput').value;
+              const portraitPreview = document.getElementById('portraitPreview');
+              const tokenPreview = document.getElementById('tokenPreview');
+          
+              this.createCharacterButton({
+                  name,
+                  bio,
+                  portraitUrl: portraitPreview.dataset.imageData || '',
+                  tokenUrl: tokenPreview.dataset.imageData || ''
+              });
 
-                this.closeCreationWindow(creationWindow);
-            });
+              this.closeCreationWindow(creationWindow);
+          });
           document.getElementById('closeBtn').addEventListener('click', () => {
               this.closeCreationWindow(creationWindow);
           });
       }
 
-        createCharacterButton(characterData) {
-            const characterButton = document.createElement('button');
-            characterButton.className = 'character-sheet-button';
-            characterButton.innerHTML = `
-                <div class="character-preview" style="background-image: url('${characterData.portraitUrl}')"></div>
-                <span>${characterData.name}</span>
-            `;
-        
-            // Store all character data as dataset attributes
-            characterButton.dataset.name = characterData.name;
-            characterButton.dataset.bio = characterData.bio;
-            characterButton.dataset.portrait = characterData.portraitUrl;
-            characterButton.dataset.token = characterData.tokenUrl;
+      createCharacterButton(characterData) {
+          const characterButton = document.createElement('button');
+          characterButton.className = 'character-sheet-button';
+          characterButton.innerHTML = `
+              <div class="character-preview" style="background-image: url('${characterData.portraitUrl}')"></div>
+              <span>${characterData.name}</span>
+          `;
+          
+          // Store all character data as dataset attributes
+          characterButton.dataset.name = characterData.name;
+          characterButton.dataset.bio = characterData.bio;
+          characterButton.dataset.portrait = characterData.portraitUrl;
+          characterButton.dataset.token = characterData.tokenUrl;
 
-            this.sheetsContainer.appendChild(characterButton);
-        }
+          characterButton.addEventListener('click', () => {
+              if (!characterButton.dataset.sheetType) {
+                  const selectorHandler = (selectedType) => {
+                      characterButton.dataset.sheetType = selectedType;
+                      this.openCharacterSheet({
+                          ...characterData,
+                          sheetType: selectedType
+                      });
+                  };
+                  this.createSheetTypeSelector({...characterData, onTypeSelect: selectorHandler});
+              } else {
+                  this.openCharacterSheet({
+                      ...characterData,
+                      sheetType: characterButton.dataset.sheetType
+                  });
+              }
+          });
+
+          this.sheetsContainer.appendChild(characterButton);
+      }
+
+      createSheetTypeSelector(characterData) {
+          const selectorWindow = document.createElement('div');
+          selectorWindow.className = 'character-creation-window';
+          selectorWindow.innerHTML = `
+              <div class="sheet-type-selector">
+                  <h3>Select Sheet Type</h3>
+                  <div class="sheet-type-buttons">
+                      ${this.sheetTypes.map(type => `
+                          <button class="sheet-type-button" data-type="${type}">
+                              ${type.charAt(0).toUpperCase() + type.slice(1)}
+                          </button>
+                      `).join('')}
+                  </div>
+              </div>
+          `;
+
+          document.body.appendChild(selectorWindow);
+
+          const buttons = selectorWindow.querySelectorAll('.sheet-type-button');
+          buttons.forEach(button => {
+              button.addEventListener('click', () => {
+                  const sheetType = button.dataset.type;
+                  if (characterData.onTypeSelect) {
+                      characterData.onTypeSelect(sheetType);
+                  }
+                  selectorWindow.remove();
+              });
+          });
+      }      openCharacterSheet(characterData) {
+          const sheetWindow = document.createElement('div');
+          sheetWindow.className = 'character-sheet-window';
+          sheetWindow.innerHTML = `
+              <div class="sheet-header">
+                  <h2>${characterData.name}</h2>
+                  <span class="sheet-type">${characterData.sheetType}</span>
+                  <button class="close-sheet-button">×</button>
+              </div>
+              <div class="sheet-content">
+                  <img class="sheet-portrait" src="${characterData.portraitUrl}" alt="Character Portrait">
+                  <div class="sheet-bio">${characterData.bio}</div>
+              </div>
+          `;
+
+          document.body.appendChild(sheetWindow);
+
+          sheetWindow.querySelector('.close-sheet-button').addEventListener('click', () => {
+              sheetWindow.remove();
+          });
+      }
+
+      createCharacterButton(characterData) {
+          const characterButton = document.createElement('button');
+          characterButton.className = 'character-sheet-button';
+          characterButton.innerHTML = `
+              <div class="character-preview" style="background-image: url('${characterData.portraitUrl}')"></div>
+              <span>${characterData.name}</span>
+          `;
+        
+          characterButton.dataset.name = characterData.name;
+          characterButton.dataset.bio = characterData.bio;
+          characterButton.dataset.portrait = characterData.portraitUrl;
+          characterButton.dataset.token = characterData.tokenUrl;
+          characterButton.dataset.hasSelectedType = 'false';
+
+          const handleSheetOpen = (() => {
+              let typeSelected = false;
+              return () => {
+                  if (!typeSelected) {
+                      typeSelected = true;
+                      this.createSheetTypeSelector({
+                          ...characterData,
+                          onTypeSelect: (selectedType) => {
+                              characterButton.dataset.sheetType = selectedType;
+                              characterButton.dataset.hasSelectedType = 'true';
+                              this.openCharacterSheet({
+                                  ...characterData,
+                                  sheetType: selectedType
+                              });
+                          }
+                      });
+                  } else {
+                      this.openCharacterSheet({
+                          ...characterData,
+                          sheetType: characterButton.dataset.sheetType
+                      });
+                  }
+              };
+          })();
+
+          characterButton.addEventListener('click', handleSheetOpen);
+          this.sheetsContainer.appendChild(characterButton);
+      }
       closeCreationWindow(window) {
           document.getElementById('portraitInput').value = '';
           document.getElementById('tokenInput').value = '';
@@ -477,7 +588,6 @@ class ChatSystem {
       }
 
       createHandout() {
-          // Add handout creation logic here
           console.log('Creating new handout');
       }
-  }  
+  }

@@ -30,12 +30,14 @@
         </div>
 
         
-        <div class="color-a"  style="--wiki-color-A: #ffffd1; --wiki-text-color: #464600;">
+        <div class="color-a"  style="--wiki-color-A: #ffffd1; --wiki-text-color: #464600;" >
             <div class="wiki-grid">
                 <div class="wiki-side-ad"></div>
                 <div class="wiki-body-image"></div>
                 <div class="wiki-title">Setting</div>
-                <div class="wiki-colum1"></div>
+                <div class="wiki-colum1" >
+                    <a href="./setting/EATCHB.html">◦ EATCHB</a>
+                </div>
                 <div class="wiki-colum2"></div>
                 <div class="wiki-colum3"></div>
             </div>
@@ -171,7 +173,7 @@
 	**◦**	Musket<br>
 	**◦**	Boom stick <br>
 **Ranger** <br>
-    "../bloodlust&mercy/weapon types/bow.html | ◦ Bow"<br>
+    <a href="./weapon types/bow.html">◦ Bow</a> <br>
 	**◦**	Crossbow<br>
 	**◦**	Sniper <br>
 **Solider** <br>
@@ -265,7 +267,7 @@
             </div>
         </div>
 
-        <div class="color-a" style="--wiki-color-A: #c4c41c; --wiki-text-color: #464600;">
+        <div class="color-a" style="--wiki-color-A: #ffffd1; --wiki-text-color: #464600;">
             <div class="wiki-grid">
                 <div class="wiki-side-ad"></div>
                 <div class="wiki-body-image"></div>
@@ -287,7 +289,7 @@
             </div>
         </div>
         
-        <div class="color-a" style="--wiki-color-A: #c4c41c; --wiki-text-color: #464600;">
+        <div class="color-a" style="--wiki-color-A: #ffffd1; --wiki-text-color: #464600;">
             <div class="wiki-grid">
                 <div class="wiki-side-ad"></div>
                 <div class="wiki-body-image"></div>
@@ -309,7 +311,7 @@
             </div>
         </div>  
 
-        <div class="color-a" style="--wiki-color-A: #c4c41c; --wiki-text-color: #464600;">
+        <div class="color-a" style="--wiki-color-A: #ffffd1; --wiki-text-color: #464600;">
             <div class="wiki-grid">
                 <div class="wiki-side-ad"></div>
                 <div class="wiki-body-image"></div>
@@ -355,4 +357,43 @@
         <p>&copy; 2024 Thomas carlson. All rights reserved.</p>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var contentDivs = document.querySelectorAll('#content');
+
+    contentDivs.forEach(function(contentDiv) {
+        // Store the original HTML to preserve any existing HTML elements
+        var originalHTML = contentDiv.innerHTML;
+        
+        // Replace HTML entities temporarily
+        var tempContent = originalHTML
+            .replace(/&/g, '&ERSAND;')
+            .replace(/</g, '<')
+            .replace(/>/g, '>');
+        
+        // Process with marked
+        var updatedText = marked.parse(tempContent);
+        
+        // Restore HTML entities
+        updatedText = updatedText
+            .replace(/&ERSAND;/g, '&')
+            .replace(/</g, '<')
+            .replace(/>/g, '>');
+        
+        // Apply custom styling
+        updatedText = updatedText.replace(/<strong>/g, '<span class="bold">');
+        updatedText = updatedText.replace(/<\/strong>/g, '</span>');
+        
+        updatedText = updatedText.replace(/<a href="([^"]+)">/g, '<a class="link" href="$1">');
+        
+        // Add custom classes to tables
+        updatedText = updatedText.replace(/<table>/g, '<table class="wiki-table">');
+        updatedText = updatedText.replace(/<th>/g, '<th class="table-cell-bold">');
+        updatedText = updatedText.replace(/<td>/g, '<td class="table-cell">');
+        
+        contentDiv.innerHTML = updatedText;
+    });
+});
+</script>
 </html>
