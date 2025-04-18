@@ -1,0 +1,302 @@
+/* Frutiger Aero inspired CSS for bíθun.html - Dark Mode */
+
+/* Base styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1f2c 0%, #121620 100%);
+    color: #00df8d;
+    line-height: 1.6;
+    padding-bottom: 30px;
+}
+
+/* Header and navigation */
+.header {
+    background: rgba(30, 40, 60, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(70, 90, 120, 0.5);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+}
+
+.header nav ul li {
+    margin: 0 20px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #4db2ff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    background: rgba(77, 178, 255, 0.15);
+    box-shadow: 0 0 10px rgba(77, 178, 255, 0.3);
+}
+
+/* Main header */
+header {
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #4db2ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Setting overview section */
+.setting-overview {
+    background: rgba(30, 40, 60, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(70, 90, 120, 0.8);
+}
+
+.setting-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.setting-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.setting-description {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #c0c0c0;
+}
+
+.button-container {
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(to bottom, #0078d7, #005ba1);
+    color: #00ff55;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 120, 215, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #0086ef, #0078d7);
+    box-shadow: 0 5px 15px rgba(0, 120, 215, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Region section */
+.region-section {
+    background: rgba(30, 40, 60, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(70, 90, 120, 0.8);
+}
+
+.region-section h2 {
+    color: #4db2ff;
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.region-overview, .region-details {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(40, 50, 70, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.region-section h3 {
+    color: #4db2ff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(77, 178, 255, 0.3);
+    padding-bottom: 8px;
+}
+
+.region-section h4 {
+    color: #5dbaff;
+    font-size: 20px;
+    margin: 15px 0 10px;
+}
+
+.region-section h5 {
+    color: #6dc2ff;
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.region-section p {
+    margin-bottom: 15px;
+    color: #c0c0c0;
+}
+
+.region-section ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    color: #c0c0c0;
+}
+
+.region-section li {
+    margin-bottom: 10px;
+}
+
+/* Ecosystem items */
+.ecosystem-item {
+    background: rgba(40, 50, 70, 0.6);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.ecosystem-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Role groups */
+.role-group {
+    background: rgba(40, 50, 70, 0.6);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.role-group:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.role-group h4 {
+    color: #5dbaff;
+    margin-top: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(30, 40, 60, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(70, 90, 120, 0.5);
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header nav ul li {
+        margin: 5px 0;
+    }
+    
+    .setting-overview, .region-section {
+        padding: 20px 15px;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+    
+    .region-section h2 {
+        font-size: 26px;
+    }
+    
+    .region-section h3 {
+        font-size: 22px;
+    }
+}
+
+/* Glossy effects for special elements */
+.setting-image img, button {
+    position: relative;
+    overflow: hidden;
+}
+
+.setting-image img::after, button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+/* Add subtle blue glow to interactive elements */
+button, .role-group:hover, .ecosystem-item:hover {
+    box-shadow: 0 0 15px rgba(77, 178, 255, 0.3);
+}
+
+/* Add subtle reflections to containers */
+.setting-overview::after, .region-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+        rgba(77, 178, 255, 0), 
+        rgba(77, 178, 255, 0.3), 
+        rgba(77, 178, 255, 0));
+}
